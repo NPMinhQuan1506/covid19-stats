@@ -1,5 +1,6 @@
-import { Box, Container, Divider, Typography } from "@mui/material";
 import React from "react";
+import { Container, Typography } from "@mui/material";
+import { DailyUpdateSection } from "../components";
 
 export default function HomePage() {
   return (
@@ -7,6 +8,8 @@ export default function HomePage() {
       <Typography variant="h3" textAlign="center">
         Số liệu Covid-19 trên thế giới
       </Typography>
+
+      <DailyUpdateSection />
     </Container>
   );
 }
