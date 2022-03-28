@@ -3,15 +3,14 @@ import { Box, Divider, Typography } from "@mui/material";
 import FlexBox from "./FlexBox";
 import Request from "../Request";
 import { Summary } from "../api-types";
+import { AxiosResponse } from "axios";
 
 export default function DailyUpdateSection() {
   const [summary, setSummary] = useState<Summary | null>(null);
 
   useEffect(() => {
-    Request.get("/summary").then(
-      (response: { data: Summary; [key: string]: any }) => {
-        setSummary(response.data);
-      }
+    Request.get("/summary").then((response: AxiosResponse<Summary>) =>
+      setSummary(response.data)
     );
   }, []);
 
