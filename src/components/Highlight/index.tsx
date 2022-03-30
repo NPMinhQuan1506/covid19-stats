@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import Request from "../../Request";
 import { Summary } from "../../api-types";
 import React, { useEffect, useState } from "react";
+import { AxiosResponse } from "axios";
 import HighlightCard from "./HighlightCard";
 
 export default function Highlight() {
@@ -9,7 +10,7 @@ export default function Highlight() {
 
   useEffect(() => {
     Request.get("/summary").then(
-      (response: { data: Summary; [key: string]: any }) => {
+      (response: AxiosResponse<Summary>) => {
         setSummary(response.data);
       }
     );
