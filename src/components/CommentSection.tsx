@@ -1,10 +1,11 @@
-import { Divider, Typography, Box, TextField, Avatar } from "@mui/material";
+import { Divider, Typography, Box, TextField, Avatar, ButtonGroup, Button } from "@mui/material";
 
 export default function CommentSection() {
     return (
         <>
             <Divider />
-            <Typography style={{ fontSize:'20px', fontWeight:'bold' }} padding={2}>Bình luận</Typography>
+            <Typography style={{ fontSize: '20px', fontWeight: 'bold' }} padding={2}>Bình luận</Typography>
+
             <Box
                 sx={{
                     display: 'flex',
@@ -13,6 +14,9 @@ export default function CommentSection() {
                 }}
             >
                 <TextField style={{ width: '400px' }} id="demo-helper-text-misaligned-no-helper" label="Vui lòng nhập ý kiến của bạn" />
+                <ButtonGroup aria-label="medium secondary button group">
+                    {buttons}
+                </ButtonGroup>
             </Box>
             <Box sx={{
                 display: 'flex',
@@ -53,3 +57,7 @@ export default function CommentSection() {
         </>
     );
 }
+const buttons = [
+    <Button key="new">Mới nhất</Button>,
+    <Button key="two">Quan Tâm</Button>,
+];
