@@ -1,6 +1,13 @@
-import { Divider, Typography, Box, TextField, Avatar, ButtonGroup, Button } from "@mui/material";
+import { Divider, Typography, Box, TextField, Avatar, ButtonGroup, Button, Tabs, Tab } from "@mui/material";
+import * as React from 'react';
 
 export default function CommentSection() {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };
+
     return (
         <>
             <Divider />
@@ -14,9 +21,12 @@ export default function CommentSection() {
                 }}
             >
                 <TextField style={{ width: '400px' }} id="demo-helper-text-misaligned-no-helper" label="Vui lòng nhập ý kiến của bạn" />
-                <ButtonGroup aria-label="medium secondary button group">
-                    {buttons}
-                </ButtonGroup>
+                <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                    <Tabs value={value} onChange={handleChange} centered>
+                        <Tab label="Quan tâm nhất" />
+                        <Tab label="Mới nhất" />
+                    </Tabs>
+                </Box>
             </Box>
             <Box sx={{
                 display: 'flex',
@@ -59,5 +69,5 @@ export default function CommentSection() {
 }
 const buttons = [
     <Button key="new">Mới nhất</Button>,
-    <Button key="two">Quan Tâm</Button>,
+    <Button key="focus">Quan Tâm</Button>,
 ];
