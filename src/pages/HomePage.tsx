@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography } from "@mui/material";
-import { DailyUpdateSection, TotalDaysSection } from "../components";
 import Hightlight from "../components/Highlight";
+import { DailyUpdateSection, TotalDaysSection, CommentSection, AboutSection } from "../components";
 
 export default function HomePage() {
   return (
@@ -13,6 +13,8 @@ export default function HomePage() {
       <DailyUpdateSection />
       <TotalDaysSection />
       <Hightlight />
+      <CommentSection />
+      <AboutSection />
     </Container>
   );
 }
