@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Box, Typography, Stack, Divider } from "@mui/material";
+import { useState } from "react";
+import { Grid, Box, Typography, Stack } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import CommentAvatar from "./CommentAvatar";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import ReplyIcon from "@mui/icons-material/Reply";
 import CommentForm from "../CommentForm";
-import { style } from "@mui/system";
 const useStyle = makeStyles({
   toolboxComment: {
     fontSize: 16,

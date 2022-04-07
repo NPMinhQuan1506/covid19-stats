@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Container, Grid, Typography, Button } from "@mui/material";
-import React, { useState } from "react";
+import { Container, Grid, Typography } from "@mui/material";
+import { useState } from "react";
 import CommentCart from "./CommentCart";
 import CommentTab from "./CommentTab";
 import CommentForm from "./CommentForm";
@@ -97,7 +97,7 @@ const initData = [
 export default function index() {
   const [data, setData] = useState(initData);
   const [recordShowing, setRecordShowing] = useState(5);
-console.log(recordShowing)
+  console.log(recordShowing);
   const addData = (item: any) => {
     setData((prev) => [...prev, item]);
   };
@@ -164,14 +164,16 @@ console.log(recordShowing)
         </Grid>
         <Grid item sm={4} xs={12}></Grid>
         <Grid item sm={8} xs={12}>
-          <ShowMoreButton style={{ width: "100%" }} onClick={()=>{
-            if(data.length - recordShowing > 5){
-              setRecordShowing(prev=>prev+5)
-            }
-            else if(data.length - recordShowing > 0){
-              setRecordShowing(data.length)
-            }
-          }}>
+          <ShowMoreButton
+            style={{ width: "100%" }}
+            onClick={() => {
+              if (data.length - recordShowing > 5) {
+                setRecordShowing((prev) => prev + 5);
+              } else if (data.length - recordShowing > 0) {
+                setRecordShowing(data.length);
+              }
+            }}
+          >
             Xem thêm ý kiến
           </ShowMoreButton>
         </Grid>

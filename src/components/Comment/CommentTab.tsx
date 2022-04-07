@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tabs, Tab, Box, Typography, Paper } from "@mui/material";
+import { Tabs, Tab, Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 
@@ -20,11 +20,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }

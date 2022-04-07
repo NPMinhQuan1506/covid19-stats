@@ -1,8 +1,12 @@
 import { Container, Typography } from "@mui/material";
-import { DailyUpdateSection } from "../components";
+import {
+  DailyOverview,
+  DailyUpdateSection,
+  TotalDaysSection,
+} from "../components";
 
-import Highlight from "../components/Highlight";
-import Comment from "../components/Comment";
+import Comment from "../components/CommentSection";
+import Hightlight from "../components/Highlight";
 
 export default function HomePage() {
   return (
@@ -13,7 +17,12 @@ export default function HomePage() {
 
       <DailyUpdateSection />
 
-      <Highlight />
+      <DailyOverview />
+
+      <TotalDaysSection />
+
+      <Hightlight />
+
       <Comment />
     </Container>
   );
