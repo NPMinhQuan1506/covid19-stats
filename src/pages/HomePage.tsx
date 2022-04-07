@@ -1,11 +1,8 @@
-import { Button, Container, Divider, Typography } from "@mui/material";
-import Hightlight from "../components/Highlight";
-import {
-  DailyUpdateSection,
-  TotalDaysSection,
-  CommentSection,
-} from "../components";
-import { Link } from "react-router-dom";
+import { Container, Typography } from "@mui/material";
+import { DailyUpdateSection } from "../components";
+
+import Highlight from "../components/Highlight";
+import Comment from "../components/Comment";
 
 export default function HomePage() {
   return (
@@ -15,15 +12,9 @@ export default function HomePage() {
       </Typography>
 
       <DailyUpdateSection />
-      <TotalDaysSection />
-      <Hightlight />
-      <CommentSection />
 
-      <Divider />
-
-      <Button>
-        <Link to="/about">Về chúng tôi</Link>
-      </Button>
+      <Highlight />
+      <Comment />
     </Container>
   );
 }
