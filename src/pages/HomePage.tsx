@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Typography } from "@mui/material";
-import { DailyUpdateSection, TotalDaysSection } from "../components";
+import { DailyUpdateSection, TotalDaysSection, CommentSection, AboutSection } from "../components";
 
 export default function HomePage() {
   return (
@@ -11,6 +11,8 @@ export default function HomePage() {
 
       <DailyUpdateSection />
       <TotalDaysSection />
+      <CommentSection />
+      <AboutSection />
     </Container>
   );
 }
