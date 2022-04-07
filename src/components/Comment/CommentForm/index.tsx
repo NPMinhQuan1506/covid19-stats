@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, AlertTitle, Alert } from "@mui/material";
 import CommentButton from "./CommentButton";
-import Alert from '@mui/material/Alert';
 
 export default function CommentForm(props: any) {
   const formik = useFormik({
@@ -45,20 +44,35 @@ export default function CommentForm(props: any) {
         createdDate: datetime,
         subComment: [],
       };
-      if( props.onAdd !== undefined){
+      if (props.onAdd !== undefined) {
         props.onAdd(customData);
+      } else {
+        props.onAddSub(customData, props.id);
       }
-     else{
-      props.onAddSub(customData, props.id);
-     }
-     resetForm();
-    }
+      resetForm();
+      setAlert(true);
+      setTimeout(function () {
+        setAlert(false);
+      }, 2000);
+    },
   });
 
-  const alertForm =  <Alert onClose={() => {}}>Bình luận thành công!</Alert>
-  const [alert, showAlert] = useState(false)
+  const [alert, setAlert] = useState(false);
   return (
     <Box mt={3}>
+      {alert && (
+        <Alert
+          onClose={() => {
+            setAlert(false);
+          }}
+          variant="filled"
+          severity="success"
+          style={{ position: "fixed", top: 0, left: "20vw", width: "60vw" }}
+        >
+          <AlertTitle>Thành Công</AlertTitle>
+          Bình luận thành công!
+        </Alert>
+      )}
       <form className="infoform" onSubmit={formik.handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -109,7 +123,7 @@ export default function CommentForm(props: any) {
             />
           </Grid>
           <Grid item xs={2}>
-            <CommentButton type="submit" > Gửi </CommentButton>
+            <CommentButton type="submit"> Gửi </CommentButton>
           </Grid>
         </Grid>
       </form>
