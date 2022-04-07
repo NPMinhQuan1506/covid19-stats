@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Typography } from "@mui/material";
 import { DailyUpdateSection } from "../components";
+import Highlight from "../components/Highlight";
+import Comment from "../components/Comment"
 
 export default function HomePage() {
   return (
@@ -10,6 +12,8 @@ export default function HomePage() {
       </Typography>
 
       <DailyUpdateSection />
+      <Highlight />
+      <Comment />
     </Container>
   );
 }
