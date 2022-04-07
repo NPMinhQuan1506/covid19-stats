@@ -1,7 +1,11 @@
-import React from "react";
-import { Container, Typography } from "@mui/material";
+import { Button, Container, Divider, Typography } from "@mui/material";
 import Hightlight from "../components/Highlight";
-import { DailyUpdateSection, TotalDaysSection, CommentSection, AboutSection } from "../components";
+import {
+  DailyUpdateSection,
+  TotalDaysSection,
+  CommentSection,
+} from "../components";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -14,7 +18,12 @@ export default function HomePage() {
       <TotalDaysSection />
       <Hightlight />
       <CommentSection />
-      <AboutSection />
+
+      <Divider />
+
+      <Button>
+        <Link to="/about">Về chúng tôi</Link>
+      </Button>
     </Container>
   );
 }
