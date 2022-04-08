@@ -41,6 +41,7 @@ export default function WorldMap() {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
+                stroke="#000"
                 fill={
                   newConfimedMap.get(geo.properties.ISO_A2) !== undefined
                     ? getColorFromNewConfirmed(
