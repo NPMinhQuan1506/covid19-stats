@@ -3,6 +3,7 @@ import {
   DailyOverview,
   DailyUpdateSection,
   TotalDaysSection,
+  WorldMap,
 } from "../components";
 
 import Comment from "../components/CommentSection";
@@ -16,6 +17,8 @@ export default function HomePage() {
       </Typography>
 
       <DailyUpdateSection />
+
+      <WorldMap />
 
       <DailyOverview />
 
