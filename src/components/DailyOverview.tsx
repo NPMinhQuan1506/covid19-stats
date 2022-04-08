@@ -22,13 +22,13 @@ export default function DailyOVerview() {
         <b>
           {summary === null
             ? "Loading..."
-            : summary.Global.NewConfirmed.toLocaleString()}
+            : (summary.Global.NewConfirmed.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
         </b>{" "}
         ca, nâng tổng số ca nhiễm trên Thế Giới từ ngày 27/4 đến nay lên{" "}
         <b>
           {summary === null
             ? "Loading..."
-            : summary.Global.TotalConfirmed.toLocaleString()}
+            : (summary.Global.TotalConfirmed.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
         </b>{" "}
         ca.
         <p>
@@ -36,13 +36,13 @@ export default function DailyOVerview() {
           <b>
             {summary === null
               ? "Loading..."
-              : summary.Global.NewRecovered.toLocaleString()}
+              : (summary.Global.NewRecovered.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </b>{" "}
           người khỏi bệnh và{" "}
           <b>
             {summary === null
               ? "Loading..."
-              : summary.Global.NewDeaths.toLocaleString()}
+              : (summary.Global.NewDeaths.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </b>{" "}
           ca tử vong{" "}
         </p>
