@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import { Summary } from "../api-types";
@@ -17,6 +17,7 @@ export default function DailyOVerview() {
 
   return (
     <Container>
+      <Box>
       <Typography>
         Ngày hôm qua, Thế giới đã ghi nhận{" "}
         <b>
@@ -31,7 +32,8 @@ export default function DailyOVerview() {
             : (summary.Global.TotalConfirmed.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
         </b>{" "}
         ca.
-        <p>
+      </Typography>
+      <Typography component="p">
           Cùng ngày, Bộ Y tế Thế Giới đã công bố{" "}
           <b>
             {summary === null
@@ -45,9 +47,8 @@ export default function DailyOVerview() {
               : (summary.Global.NewDeaths.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </b>{" "}
           ca tử vong{" "}
-        </p>
-        {/* ? và : giống if và else */}
       </Typography>
+      </Box>
     </Container>
   );
 }
