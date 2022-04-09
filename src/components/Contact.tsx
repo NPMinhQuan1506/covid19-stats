@@ -119,7 +119,7 @@ export default function Contact() {
                       color: "#1C4CC5",
                     }}
                   >
-                    15 Chiều Thứ 2
+                    12 Chiều Thứ 2
                   </Typography>
                 </Typography>
                 <Typography

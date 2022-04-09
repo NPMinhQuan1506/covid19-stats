@@ -18,7 +18,7 @@ export default function Footer() {
       <Container maxWidth="md">
         <Toolbar>
           <Typography variant="body1" color="inherit" align="center" width="100%">
-            © {year} Team15 SGU
+            © {year} Team12 SGU
           </Typography>
         </Toolbar>
       </Container>
