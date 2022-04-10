@@ -1,48 +1,43 @@
-
-  .pot {
-    position: relative;
-    animation: run infinite 20s linear;
-    animation-duration: 10s;
-    width: 100px;
-    z-index: 999;
+.pot {
+  position: relative;
+  animation: run infinite 20s linear;
+  animation-duration: 10s;
+  width: 100px;
+  z-index: 999;
+}
+@keyframes run {
+  0% {
+    left: 0%;
   }
-  @keyframes run {
-    0% {
-      left: 0%;
-    }
-    50% {
-      left: 100%;
-    }
-    100% {
-      left: 0%;    
-    }
+  50% {
+    left: 100%;
   }
-
-.avatar-vuong::before
-{
-    position: absolute;
-    content: '';
-    width: 300px;
-    height: 300px;
-    z-index: 99;
-    border-radius: 80%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    animation: rotate 5s linear infinite;
-    border: 3px dashed #00003b;
+  100% {
+    left: 0%;
+  }
 }
 
-@keyframes rotate
-{
-    from
-    {
+.avatar-vuong::before {
+  position: absolute;
+  content: "";
+  width: 300px;
+  height: 300px;
+  z-index: 99;
+  border-radius: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 5s linear infinite;
+  border: 3px dashed #00003b;
+}
+
+@keyframes rotate {
+  from {
     border: 5px dashed #cc0000;
-    transform: translate(-50%,-50%) rotate(360deg);
-    }
-    to
-    {
-        border: 5px dashed #000020;
-    transform: translate(-50%,-50%) rotate(-360deg);
-    }
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    border: 5px dashed #000020;
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }

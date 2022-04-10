@@ -55,7 +55,7 @@ export default function AboutSection() {
       </div>
       <Divider />
       <Typography style={{ fontSize: "20px", fontWeight: "bold", marginTop: 0, lineHeight: 0 }} padding={2}>
-        Về chúng tôi
+        Về chúng tôi (Nhóm 12)
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={12}>

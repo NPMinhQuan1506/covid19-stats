@@ -56,7 +56,7 @@ export default function HighlightCard({ title, content, subContent, type }) {
     <Card
       elevation={0}
       className={classes.wrapperGrid}
-      style={{ minheight: "124px" }}
+      style={{ minheight: "124px"}}
     >
       <Typography
         component="p"

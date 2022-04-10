@@ -53,7 +53,7 @@ export default function Highlight() {
     },
   ];
   return (
-    <Grid container spacing={3} maxWidth={860} style={{ margin: "0 auto" }}>
+    <Grid container spacing={3} maxWidth={1100} style={{ margin: "0 auto" }}>
       {data.map((item) => (
         <Grid key={item.type} item sm={3} xs={12} my={2}>
           <HighlightCard

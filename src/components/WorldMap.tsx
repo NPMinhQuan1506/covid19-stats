@@ -33,10 +33,10 @@ export default function WorldMap() {
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies.map((geo) => {
-            console.log(
-              geo.properties.ISO_A2,
-              newConfimedMap.get(geo.properties.ISO_A2)
-            );
+            // console.log(
+            //   geo.properties.ISO_A2,
+            //   newConfimedMap.get(geo.properties.ISO_A2)
+            // );
             return (
               <Geography
                 key={geo.rsmKey}

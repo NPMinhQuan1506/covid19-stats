@@ -8,6 +8,7 @@ import {
 
 import Comment from "../components/Comment";
 import Hightlight from "../components/Highlight";
+import LineCharts from "../components/LineCharts";
 
 export default function HomePage() {
   return (
@@ -26,7 +27,10 @@ export default function HomePage() {
 
       <Hightlight />
 
+      <LineCharts />
+
       <Comment />
+      
     </Container>
   );
 }

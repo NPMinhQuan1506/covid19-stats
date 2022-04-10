@@ -53,19 +53,19 @@ const ResponsiveAppBar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <NavLink
+          <NavLink
             to={"/"}
             style={{
               textDecoration: "none",
               color: "#00003b",
-              display: "flex"
+              display: "flex",
             }}
           >
-          <Avatar
-            alt="icon-logo"
-            src="/logo-covid.png"
-            sx={{ width: 50, height: 50 }}
-          />
+            <Avatar
+              alt="icon-logo"
+              src="/logo-covid.png"
+              sx={{ width: 50, height: 50 }}
+            />
 
             <Typography
               variant="h6"
@@ -108,6 +108,7 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page, index) => (
                 <NavLink
+                  key={index}
                   className={({ isActive }) =>
                     isActive ? classes.active : classes.inactive
                   }
@@ -135,6 +136,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <NavLink
+                key={index}
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.inactive
                 }
