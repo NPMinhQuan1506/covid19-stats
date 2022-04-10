@@ -5,7 +5,6 @@ import CommentCart from "./CommentCart";
 import CommentTab from "./CommentTab";
 import CommentForm from "./CommentForm";
 import ShowMoreButton from "./ShowMoreButton";
-import { CommentSection, FlexBox } from "..";
 const initData = [
   {
     id: 2,
@@ -94,7 +93,6 @@ const initData = [
     subComment: [],
   },
 ];
-
 export default function index() {
   const [data, setData] = useState(initData);
   const [recordShowing, setRecordShowing] = useState(5);
@@ -102,7 +100,6 @@ export default function index() {
   const addData = (item: any) => {
     setData((prev) => [...prev, item]);
   };
-
   const addSubData = (item: any, id: number) => {
     let tempData = [...data];
     let objIndex = tempData.findIndex((obj) => obj.id === id);
@@ -145,7 +142,7 @@ export default function index() {
   return (
     <Container>
       <Grid container spacing={2} style={{ marginBottom: "20px" }}>
-        <Grid item>
+        <Grid item sm={8} xs={12}>
           <Typography
             component="p"
             variant="h4"
@@ -161,25 +158,24 @@ export default function index() {
             </Typography>
           </Typography>
           <CommentForm onAdd={addData} length={data.length} />
-
-          <CommentSection />
+          <CommentTab tabContent={tab} />
         </Grid>
-        <Grid item>
-          {recordShowing !== data.length && (
-            <ShowMoreButton
-              style={{ width: "100%" }}
-              onClick={() => {
-                if (data.length - recordShowing > 5) {
-                  setRecordShowing((prev) => prev + 5);
-                } else if (data.length - recordShowing > 0) {
-                  setRecordShowing(data.length);
-                }
-              }}
-            >
-              Xem thêm ý kiến
-            </ShowMoreButton>
-          )}
+        <Grid item sm={4} xs={12}></Grid>
+        <Grid item sm={8} xs={12}>
+        {recordShowing !== data.length && <ShowMoreButton
+            style={{ width: "100%" }}
+            onClick={() => {
+              if (data.length - recordShowing > 5) {
+                setRecordShowing((prev) => prev + 5);
+              } else if (data.length - recordShowing > 0) {
+                setRecordShowing(data.length);
+              }
+            }}
+          >
+            Xem thêm ý kiến
+          </ShowMoreButton>}
         </Grid>
+        <Grid item sm={4} xs={12}></Grid>
       </Grid>
     </Container>
   );
