@@ -25,7 +25,7 @@ const generateOptions = (data, subTitle) => {
       categories: categories,
       crosshair: true,
     },
-    colors: ["#9e443d", "#4E4E4E", "#FF392B", "#222"],
+    colors: ["#FF392B", "#056625", "#222", "#e18425"],
     yAxis: {
       min: 0,
       title: {
@@ -52,20 +52,20 @@ const generateOptions = (data, subTitle) => {
     },
     series: [
       {
-        name: "Tổng Ca nhiễm",
+        name: "Tổng ca nhiễm",
         data: data.map((item) => item.TotalConfirmed),
       },
       {
-        name: "Tổng Ca Tử Vong",
+        name: "Tổng ca hồi phục",
+        data: data.map((item) => item.TotalRecovered),
+      },
+      {
+        name: "Tổng ca tử vong",
         data: data.map((item) => item.TotalDeaths),
       },
       {
-        name: "Ca nhiễm mới",
-        data: data.map((item) => item.NewConfirmed),
-      },
-      {
-        name: "Ca Tử Vong mới",
-        data: data.map((item) => item.NewDeaths),
+        name: "Tổng ca hồi phục",
+        data: data.map((item) => {item.TotalConfirmed - item.TotalRecovered - item.TotalDeaths}),
       },
     ],
   };
