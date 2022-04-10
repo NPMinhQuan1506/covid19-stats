@@ -1,16 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import moment from "moment";
 import { Button, ButtonGroup, Box } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const inactiveTheme = createTheme({ palette: { primary:{ main: "#3A3C79"} } });
-const activeTheme = createTheme({ palette: { primary: { main: "#5456AD"} } });
+const inactiveTheme = createTheme({
+  palette: { primary: { main: "#3A3C79" } },
+});
+const activeTheme = createTheme({ palette: { primary: { main: "#5456AD" } } });
 
-const generateOptions = (data, subTitle) => {
+const generateOptions = (data, subTitle, dataType) => {
   const categories = data.map((item) => moment(item.Date).format("DD/MM/YYYY"));
+  let titleData = []
+  if(dataType === "total"){
+    titleData.push("Tổng ca nhiễm", "Tổng ca hồi phục", "Tổng ca tử vong", "Tổng ca điều trị")
+  }
+  else if (dataType === "new"){
+    titleData.push("Số ca nhiễm mới", "Số ca hồi phục mới", "Số ca tử vong mới", "Số ca điều trị mới")
+  }
+  const  dataFilter = data.map((item) => {
+    console.log(dataType)
+    if (dataType === "total") {
+      return {
+        Confirmed: item.TotalConfirmed,
 
+        Recovered: item.TotalRecovered,
+
+        Deaths: item.TotalDeaths,
+        Treatment:
+          item.TotalConfirmed - item.TotalRecovered - item.TotalDeaths,
+      };
+    } else if (dataType === "new") {
+      return {
+        Confirmed: item.NewConfirmed,
+
+        Recovered: item.NewRecovered,
+
+        Deaths: item.NewDeaths,
+
+        Treatment:
+          item.NewConfirmed - item.NewRecovered - item.NewDeaths,
+      };
+    }
+  });
   return {
     chart: {
       height: 500,
@@ -19,8 +52,8 @@ const generateOptions = (data, subTitle) => {
       text: "Biểu đồ thống kê dữ liệu covid-19",
     },
     subtitle: {
-      text: subTitle
-  },
+      text: subTitle,
+    },
     xAxis: {
       categories: categories,
       crosshair: true,
@@ -52,29 +85,28 @@ const generateOptions = (data, subTitle) => {
     },
     series: [
       {
-        name: "Tổng ca nhiễm",
-        data: data.map((item) => item.TotalConfirmed),
+        name: titleData[0],
+        data: dataFilter.map((item)=>item.Confirmed),
       },
       {
-        name: "Tổng ca hồi phục",
-        data: data.map((item) => item.TotalRecovered),
+        name:titleData[1],
+        data: dataFilter.map((item)=>item.Recovered),
       },
       {
-        name: "Tổng ca tử vong",
-        data: data.map((item) => item.TotalDeaths),
+        name: titleData[2],
+        data: dataFilter.map((item)=>item.Deaths),
       },
       {
-        name: "Tổng ca hồi phục",
-        data: data.map((item) => {return item.TotalConfirmed - item.TotalRecovered - item.TotalDeaths}),
+        name: titleData[3],
+        data: dataFilter.map((item)=>item.Treatment),
       },
     ],
   };
 };
 
-export default function LineChartsContent({ data }) {
+export default function LineChartsContent({ data, dataType }) {
   const [options, setOptions] = useState({});
   const [reportType, setReportType] = useState("all");
-  console.log(data)
   useEffect(() => {
     let customData = [];
     switch (reportType) {
@@ -92,13 +124,12 @@ export default function LineChartsContent({ data }) {
         customData = data;
         break;
     }
-    let subTitle = "Dữ liệu thống kê từ đầu năm 2021"
-    if(reportType !== "all"){
-      subTitle = "Dữ liệu thống kê trong " + reportType +" gần nhất"
+    let subTitle = "Dữ liệu thống kê từ đầu năm 2021";
+    if (reportType !== "all") {
+      subTitle = "Dữ liệu thống kê trong " + reportType + " gần nhất";
     }
-    
-    setOptions(generateOptions(customData, subTitle));
-  }, [data, reportType]);
+    setOptions(generateOptions(customData, subTitle, dataType));
+  }, [data, reportType, dataType]);
 
   return (
     <Box>
@@ -123,22 +154,20 @@ export default function LineChartsContent({ data }) {
         <ThemeProvider
           theme={reportType === "30" ? activeTheme : inactiveTheme}
         >
-        <Button
-          variant={reportType === "30" ? "contained" : "outlined"}
-          onClick={() => setReportType("30")}
-        >
-          30 ngày
-        </Button>
+          <Button
+            variant={reportType === "30" ? "contained" : "outlined"}
+            onClick={() => setReportType("30")}
+          >
+            30 ngày
+          </Button>
         </ThemeProvider>
-        <ThemeProvider
-          theme={reportType === "7" ? activeTheme : inactiveTheme}
-        >
-        <Button
-          variant={reportType === "7" ? "contained" : "outlined"}
-          onClick={() => setReportType("7")}
-        >
-          7 ngày
-        </Button>
+        <ThemeProvider theme={reportType === "7" ? activeTheme : inactiveTheme}>
+          <Button
+            variant={reportType === "7" ? "contained" : "outlined"}
+            onClick={() => setReportType("7")}
+          >
+            7 ngày
+          </Button>
         </ThemeProvider>
       </ButtonGroup>
       <HighchartsReact highcharts={Highcharts} options={options} />

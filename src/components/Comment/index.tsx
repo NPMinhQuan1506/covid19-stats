@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography, Divider } from "@mui/material";
 import { useState } from "react";
 import CommentCart from "./CommentCart";
 import CommentTab from "./CommentTab";
@@ -140,7 +140,7 @@ export default function index() {
     },
   ];
   return (
-    <Container>
+    <Container style={{marginTop: 120}}>
       <Grid container spacing={2} style={{ marginBottom: "20px" }}>
         <Grid item sm={8} xs={12}>
           <Typography
