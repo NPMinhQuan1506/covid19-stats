@@ -65,7 +65,7 @@ const generateOptions = (data, subTitle) => {
       },
       {
         name: "Tổng ca hồi phục",
-        data: data.map((item) => {item.TotalConfirmed - item.TotalRecovered - item.TotalDeaths}),
+        data: data.map((item) => {return item.TotalConfirmed - item.TotalRecovered - item.TotalDeaths}),
       },
     ],
   };
