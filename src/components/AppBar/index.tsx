@@ -1,4 +1,5 @@
 import * as React from "react";
+import { makeStyles } from "@mui/styles";
 import {
   AppBar,
   Avatar,
@@ -11,6 +12,7 @@ import {
   Container,
   Button,
 } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./AppBar.css";
 const pages = [
@@ -18,6 +20,14 @@ const pages = [
   { title: "Về Chúng Tôi", link: "/about" },
   { title: "Liên Hệ", link: "/contact" },
 ];
+
+const useStyle = makeStyles({
+  active: {
+    textDecoration: "underline solid #00003b 3px",
+    textUnderlineOffset: "5px",
+  },
+  inactive: { textDecoration: "none" },
+});
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -30,18 +40,11 @@ const ResponsiveAppBar = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+  const classes = useStyle();
   return (
     <AppBar
       position="static"
@@ -50,21 +53,30 @@ const ResponsiveAppBar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+        <NavLink
+            to={"/"}
+            style={{
+              textDecoration: "none",
+              color: "#00003b",
+              display: "flex"
+            }}
+          >
           <Avatar
             alt="icon-logo"
             src="/logo-covid.png"
             sx={{ width: 50, height: 50 }}
           />
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            style={{paddingLeft: 3}}
-          >
-             COVID19 - STATS
-          </Typography>
 
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              style={{ paddingLeft: 5, paddingTop: 9, display: "inline" }}
+            >
+              COVID19 - STATS
+            </Typography>
+          </NavLink>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -95,11 +107,20 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" style={{ color: "#333" }}>
-                    {page.title}
-                  </Typography>
-                </MenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? classes.active : classes.inactive
+                  }
+                  to={page.link}
+                  style={{ color: "#333" }}
+                >
+                  <MenuItem key={index}>
+                    <Typography textAlign="center" style={{ color: "#333" }}>
+                      {" "}
+                      {page.title}
+                    </Typography>
+                  </MenuItem>
+                </NavLink>
               ))}
             </Menu>
           </Box>
@@ -113,14 +134,23 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
-              <Button
-                key={index}
-                onClick={() => (window.location.href = page.link)}
-                sx={{ my: 2, color: "white", display: "block" }}
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.inactive
+                }
+                to={page.link}
                 style={{ color: "#333" }}
               >
-                {page.title}
-              </Button>
+                <Button
+                  key={index}
+                  // onClick={() => (window.location.href = page.link)}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  style={{ color: "#333" }}
+                >
+                  {" "}
+                  {page.title}
+                </Button>
+              </NavLink>
             ))}
           </Box>
 
