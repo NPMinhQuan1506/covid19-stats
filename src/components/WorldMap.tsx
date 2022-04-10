@@ -61,7 +61,7 @@ export default function WorldMap() {
 function getColorFromNewConfirmed(confirmed: number) {
   if (confirmed < 2_000_000) return "#E7E7E7";
   else if (confirmed < 4_000_000) return "#ECE182";
-  else if (confirmed < 6_000_000) return "#ECE182";
+  else if (confirmed < 6_000_000) return "#F9C467";
   else if (confirmed < 8_000_000) return "#FD6A0B";
   else return "#8A1839";
 }
