@@ -40,7 +40,7 @@ const generateOptions = (data, subTitle, dataType) => {
         Deaths: item.NewDeaths,
 
         Treatment:
-          item.NewConfirmed - item.NewRecovered - item.NewDeaths,
+          item.NewConfirmed,
       };
     }
   });
