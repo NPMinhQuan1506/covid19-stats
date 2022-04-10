@@ -5,6 +5,7 @@ import CommentCart from "./CommentCart";
 import CommentTab from "./CommentTab";
 import CommentForm from "./CommentForm";
 import ShowMoreButton from "./ShowMoreButton";
+import { CommentSection, FlexBox } from "..";
 const initData = [
   {
     id: 2,
@@ -144,7 +145,7 @@ export default function index() {
   return (
     <Container>
       <Grid container spacing={2} style={{ marginBottom: "20px" }}>
-        <Grid item sm={8} xs={12}>
+        <Grid item>
           <Typography
             component="p"
             variant="h4"
@@ -160,24 +161,25 @@ export default function index() {
             </Typography>
           </Typography>
           <CommentForm onAdd={addData} length={data.length} />
-          <CommentTab tabContent={tab} />
+
+          <CommentSection />
         </Grid>
-        <Grid item sm={4} xs={12}></Grid>
-        <Grid item sm={8} xs={12}>
-        {recordShowing !== data.length && <ShowMoreButton
-            style={{ width: "100%" }}
-            onClick={() => {
-              if (data.length - recordShowing > 5) {
-                setRecordShowing((prev) => prev + 5);
-              } else if (data.length - recordShowing > 0) {
-                setRecordShowing(data.length);
-              }
-            }}
-          >
-            Xem thêm ý kiến
-          </ShowMoreButton>}
+        <Grid item>
+          {recordShowing !== data.length && (
+            <ShowMoreButton
+              style={{ width: "100%" }}
+              onClick={() => {
+                if (data.length - recordShowing > 5) {
+                  setRecordShowing((prev) => prev + 5);
+                } else if (data.length - recordShowing > 0) {
+                  setRecordShowing(data.length);
+                }
+              }}
+            >
+              Xem thêm ý kiến
+            </ShowMoreButton>
+          )}
         </Grid>
-        <Grid item sm={4} xs={12}></Grid>
       </Grid>
     </Container>
   );

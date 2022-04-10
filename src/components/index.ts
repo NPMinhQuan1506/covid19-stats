@@ -1,4 +1,5 @@
 export { default as AboutSection } from "./AboutSection";
+export { default as CommentCard } from "./CommentCard";
 export { default as CommentSection } from "./CommentSection";
 export { default as DailyOverview } from "./DailyOverview";
 export { default as DailyUpdateSection } from "./DailyUpdateSection";

@@ -9,11 +9,9 @@ export default function Highlight() {
   const [summary, setSummary] = useState<Summary | null>(null);
 
   useEffect(() => {
-    Request.get("/summary").then(
-      (response: AxiosResponse<Summary>) => {
-        setSummary(response.data);
-      }
-    );
+    Request.get("/summary").then((response: AxiosResponse<Summary>) => {
+      setSummary(response.data);
+    });
   }, []);
   const data = [
     {
@@ -50,12 +48,12 @@ export default function Highlight() {
         //   : summary.Global.NewConfirmed -
         //     summary.Global.NewDeaths -
         //     summary.Global.NewRecovered
-        '',
+        "",
       type: "treatment",
     },
   ];
   return (
-    <Grid container spacing={3} maxWidth={860} style={{margin:'0 auto'}}>
+    <Grid container spacing={3} maxWidth={860} style={{ margin: "0 auto" }}>
       {data.map((item) => (
         <Grid key={item.type} item sm={3} xs={12} my={2}>
           <HighlightCard
