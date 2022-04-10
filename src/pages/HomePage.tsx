@@ -6,7 +6,7 @@ import {
   WorldMap,
 } from "../components";
 
-import Comment from "../components/CommentSection";
+import Comment from "../components/Comment";
 import Hightlight from "../components/Highlight";
 
 export default function HomePage() {

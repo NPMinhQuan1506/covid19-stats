@@ -1,3 +1,5 @@
+import React, { useEffect, useState, useCallback } from "react";
+import { makeStyles } from "@mui/styles";
 import {
   Divider,
   Typography,
@@ -7,12 +9,52 @@ import {
   Container,
 } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-
+import "./About.css";
+const aliasTeacher = [
+  'Người Thầy Tuyệt Vời', 'Phù Thủy Công Nghệ', 'Hình Mẫu Lý Tưởng'
+]
+const useStyle = makeStyles({
+  fadeIn: {
+    opacity: 1,
+    animation: "$fadeInOpacity  3s ease-in 1",
+  },
+  "@keyframes fadeInOpacity": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    }
+  }
+})
 export default function AboutSection() {
+  const [newName, setnewName] = useState("Người Thầy Tuyệt Vời");
+
+  const shuffle = useCallback(() => {
+      const index = Math.floor(Math.random() * aliasTeacher.length);
+      setnewName(aliasTeacher[index]);
+  }, []);
+  const classes = useStyle();
+
+  useEffect(() => {
+      const intervalID = setInterval(shuffle, 3000);
+      return () => clearInterval(intervalID);
+  }, [shuffle])
+
+  
   return (
-    <Container>
+    <Container >
+      <div className="pot">
+        <img
+         alt="aaa"
+          src="https://media0.giphy.com/media/1Qn53anm8OTJheX1Ci/giphy.gif?cid=ecf05e47vubwiautjcdbknyfz8dec49lnkr9g271zu6far5e&rid=giphy.gif&ct=g"
+          width="100px"
+          height="120px"
+        />
+       <div style={{color: "#205030"}}>COVID - 19</div> 
+      </div>
       <Divider />
-      <Typography style={{ fontSize: "20px", fontWeight: "bold" }} padding={2}>
+      <Typography style={{ fontSize: "20px", fontWeight: "bold", marginTop: 0, lineHeight: 0 }} padding={2}>
         Về chúng tôi
       </Typography>
       <Grid container spacing={4}>
@@ -24,27 +66,45 @@ export default function AboutSection() {
               flexDirection: "column",
             }}
           >
+            
             <Avatar
-              alt="Remy Sharp"
-              src="https://i.pinimg.com/originals/e3/d4/f1/e3d4f113ce1aa1e93b89df0bed7ffffb.jpg"
+              alt="Thay Vuong"
+              src="/Avartar_Thay_Vuong.jpg"
               sx={{ width: 300, height: 300 }}
+              className="avatar-vuong"
             />
-            <h1>Thầy giáo dễ thương</h1>
+            
+            <h1 >Thầy Vương</h1>
+            <p key={Math.floor(Math.random() *999)}  className={classes.fadeIn} style={{fontSize: "1.5rem", fontWeight: "bold", textAlign: "center", marginTop: 0, lineHeight: 0 }}>{newName}</p>
             <Typography
               sx={{
-                padding: "0 300px",
+                padding: "0 320px",
                 marginBottom: "30px",
-                textAlign: "center",
+                textAlign: "near",
               }}
             >
-              Trong suốt 5 năm học dưới mái trường đại học, em đã nhận được sự
-              yêu thương, dạy dỗ của rất nhiều thầy cô giáo, trong đó người để
-              lại trong trái tim em nhiều tình cảm tốt đẹp nhất chính là cô Mai
-              Phương- giáo viên chủ nhiệm lớp em.
+              Hiểu biết sâu rộng, nhiệt huyết, tận tâm, tốt bụng, vui tính, hòa
+              đồng đó là những đức tính có ở người thầy tuyệt vời của chúng em.
+              Thầy Phạm Thi Vương người được mệnh danh là phù thủy công nghệ với
+              tầm hiểu biết và sự cập nhật thông tin về công nghệ vô cùng toàn
+              diện và nhanh chóng.
+            </Typography>
+            <Typography
+              component="p"
+              style={{ fontWeight: "bold" }}
+              sx={{
+                padding: "0 320px",
+                marginBottom: "30px",
+                textAlign: "near",
+              }}
+            >
+              Một trong những hình mẫu lý tưởng ở ngôi trường SGU -Thầy Vương Phù Thủy
+              Công Nghệ .
             </Typography>
           </Box>
         </Grid>
 
+
         <Grid item xs={6}>
           <Box
             sx={{
@@ -54,14 +114,15 @@ export default function AboutSection() {
             <Avatar
               alt="Remy Sharp"
               variant="square"
-              src="https://i.pinimg.com/originals/f5/d4/7c/f5d47c8d01b62798cd19aa1e477d5f91.png"
+              src="/Avatar_quan.png"
               sx={{ bgcolor: deepOrange[500], width: 200, height: 200 }}
               style={{ borderRadius: "6px" }}
             />
             <Grid style={{ marginLeft: "20px" }} item xs={12}>
-              <h2>Tịnh Thi</h2>
-              <p>MSSV:DH5180203</p>
-              <p>Sinh viên đại học chuyên ngành Công nghệ thông tin</p>
+              <h2>Nguyễn Phạm Minh Quân</h2>
+              <p>MSSV:3118410355</p>
+              <p>Sinh viên đại học Sài Gòn khoa Công nghệ thông tin</p>
+              <b>Thành Viên 1</b>
             </Grid>
           </Box>
         </Grid>
@@ -75,14 +136,38 @@ export default function AboutSection() {
             <Avatar
               alt="Remy Sharp"
               variant="square"
-              src="https://i.pinimg.com/564x/61/57/01/6157016e70824b5e4029735c495e860a.jpg"
+              src="/Avatar_quang.png"
               sx={{ bgcolor: deepOrange[500], width: 200, height: 200 }}
               style={{ borderRadius: "6px" }}
             />
             <Grid style={{ marginLeft: "20px" }} item xs={12}>
-              <h2>Ngân Dút</h2>
-              <p>MSSV:DH5180203</p>
-              <p>Sinh viên đại học chuyên ngành Marketing</p>
+              <h2>Phạm Minh Quang</h2>
+              <p>MSSV:3118410347</p>
+              <p>Sinh viên đại học Sài Gòn khoa Công nghệ thông tin</p>
+              <b>Thành Viên 2</b>
+            </Grid>
+          </Box>
+        </Grid>
+
+        
+        <Grid item xs={6}>
+          <Box
+            sx={{
+              display: "flex",
+            }}
+          >
+            <Avatar
+              alt="Remy Sharp"
+              variant="square"
+              src="/Avatar_lap.jpg"
+              sx={{ bgcolor: deepOrange[500], width: 200, height: 200 }}
+              style={{ borderRadius: "6px" }}
+            />
+            <Grid style={{ marginLeft: "20px" }} item xs={12}>
+              <h2>Phạm Công Lập</h2>
+              <p>MSSV:3118410222</p>
+              <p>Sinh viên đại học khoa Công nghệ thông tin</p>
+              <b>Thành Viên 3</b>
             </Grid>
           </Box>
         </Grid>
@@ -96,40 +181,19 @@ export default function AboutSection() {
             <Avatar
               alt="Remy Sharp"
               variant="square"
-              src="https://i.pinimg.com/564x/23/fa/36/23fa36ff222f779c9c94dc85c0a3c7bc.jpg"
+              src="/Avatar_minh.png"
               sx={{ bgcolor: deepOrange[500], width: 200, height: 200 }}
               style={{ borderRadius: "6px" }}
             />
             <Grid style={{ marginLeft: "20px" }} item xs={12}>
-              <h2>Mỹ Huyền</h2>
-              <p>MSSV:DH5180203</p>
-              <p>Sinh viên đại học chuyên ngành Kế toán</p>
-            </Grid>
-          </Box>
-        </Grid>
-
-        <Grid item xs={6}>
-          <Box
-            sx={{
-              display: "flex",
-            }}
-          >
-            <Avatar
-              alt="Remy Sharp"
-              variant="square"
-              src="https://i.pinimg.com/564x/db/04/a8/db04a8c82bf24ba2b3ec928aafea946c.jpg"
-              sx={{ bgcolor: deepOrange[500], width: 200, height: 200 }}
-              style={{ borderRadius: "6px" }}
-            />
-            <Grid style={{ marginLeft: "20px" }} item xs={12}>
-              <h2>Gia Nghi</h2>
-              <p>MSSV:DH5180203</p>
-              <p>Sinh viên đại học chuyên ngành Giao thông vận tải</p>
+              <h2>Nguyễn Công Minh</h2>
+              <p>MSSV:3118412035</p>
+              <p>Sinh viên đại học Sài Gòn khoa Công nghệ thông tin</p>
+              <b>Thành Viên 4</b>
             </Grid>
           </Box>
         </Grid>
       </Grid>
-
       <Divider />
     </Container>
   );

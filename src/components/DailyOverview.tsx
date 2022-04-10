@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import { Summary } from "../api-types";
@@ -17,37 +17,38 @@ export default function DailyOVerview() {
 
   return (
     <Container>
+      <Box>
       <Typography>
         Ngày hôm qua, Thế giới đã ghi nhận{" "}
         <b>
           {summary === null
             ? "Loading..."
-            : summary.Global.NewConfirmed.toLocaleString()}
+            : (summary.Global.NewConfirmed.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
         </b>{" "}
         ca, nâng tổng số ca nhiễm trên Thế Giới từ ngày 27/4 đến nay lên{" "}
         <b>
           {summary === null
             ? "Loading..."
-            : summary.Global.TotalConfirmed.toLocaleString()}
+            : (summary.Global.TotalConfirmed.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
         </b>{" "}
         ca.
-        <p>
+      </Typography>
+      <Typography component="p">
           Cùng ngày, Bộ Y tế Thế Giới đã công bố{" "}
           <b>
             {summary === null
               ? "Loading..."
-              : summary.Global.NewRecovered.toLocaleString()}
+              : (summary.Global.NewRecovered.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </b>{" "}
           người khỏi bệnh và{" "}
           <b>
             {summary === null
               ? "Loading..."
-              : summary.Global.NewDeaths.toLocaleString()}
+              : (summary.Global.NewDeaths.toLocaleString()).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </b>{" "}
           ca tử vong{" "}
-        </p>
-        {/* ? và : giống if và else */}
       </Typography>
+      </Box>
     </Container>
   );
 }

@@ -164,7 +164,7 @@ export default function index() {
         </Grid>
         <Grid item sm={4} xs={12}></Grid>
         <Grid item sm={8} xs={12}>
-          <ShowMoreButton
+        {recordShowing !== data.length && <ShowMoreButton
             style={{ width: "100%" }}
             onClick={() => {
               if (data.length - recordShowing > 5) {
@@ -175,7 +175,7 @@ export default function index() {
             }}
           >
             Xem thêm ý kiến
-          </ShowMoreButton>
+          </ShowMoreButton>}
         </Grid>
         <Grid item sm={4} xs={12}></Grid>
       </Grid>

@@ -25,7 +25,7 @@ export default function DailyUpdateSection() {
             <Typography variant="h6" color="#ff0000">
               {summary === null
                 ? "Đang tải..."
-                : `+ ${summary.Global.NewConfirmed}`}
+                : `+ ${(summary.Global.NewConfirmed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`}
             </Typography>
           </Box>
         </FlexBox>
@@ -33,7 +33,7 @@ export default function DailyUpdateSection() {
           <Typography variant="body1">Tổng</Typography>
           <Box bgcolor="#f3585b" padding={2}>
             <Typography variant="h6" color="#fff">
-              {summary === null ? "Đang tải..." : summary.Global.TotalConfirmed}
+              {summary === null ? "Đang tải..." : (summary.Global.TotalConfirmed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
             </Typography>
           </Box>
         </FlexBox>

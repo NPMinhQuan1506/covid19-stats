@@ -1,5 +1,6 @@
 import { Typography, Card } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import CountUp from 'react-countup';
 const useStyle = makeStyles({
   wrapperGrid: (props) => {
     switch (props.type) {
@@ -71,7 +72,7 @@ export default function HighlightCard({ title, content, subContent, type }) {
         align="center"
         className={classes.content}
       >
-        {content.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+         <CountUp end={content} separator='.' duration={2} />
       </Typography>
       <Typography
         component="p"
