@@ -25,6 +25,7 @@ const useStyle = makeStyles({
   contactForm: {
     width: "100%",
     padding: 30,
+    paddingTop: 70,
     borderRadius: "50px",
     background: "linear-gradient(225deg, #e1e4e6, #ffffff)",
     boxShadow: "10px 10px 20px #b2b4b5, -10px -10px 20px #ffffff",

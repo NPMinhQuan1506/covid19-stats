@@ -13,7 +13,7 @@ export default function Footer() {
     <AppBar
       position="static"
       className="sticky-navigation"
-      style={{ background: "#fff", color: "#333", marginTop: "50px",  boxShadow: "8px 0 32px 0 rgba( 31, 38, 135, 0.37 )", position: "absolute", bottom: 0}}
+      style={{ background: "#fff", color: "#333", marginTop: "50px",  boxShadow: "8px 0 32px 0 rgba( 31, 38, 135, 0.37 )", position: "relative", bottom: 0}}
     >
       <Container maxWidth="md">
         <Toolbar>
