@@ -11,16 +11,22 @@
 
 ## Table of Contents
 
-- [Getting Started with Create React App](#getting-started-with-create-react-app)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+  - [This is a project built **React.js** and got data from API Covid PostMan which trades covid data](#this-is-a-project-built-reactjs-and-got-data-from-api-covid-postman-which-trades-covid-data)
+- [Technologies](#technologies)
+  - [Project create with:](#project-create-with)
+- [Setup](#setup)
+  - [Getting Started with Create React App](#getting-started-with-create-react-app)
   - [Available Scripts](#available-scripts)
-    - [`npm start`](#npm-start)
-    - [`npm test`](#npm-test)
-    - [`npm run build`](#npm-run-build)
-    - [`npm run eject`](#npm-run-eject)
-  - [Features](#features)
-  - [Build Process](#build-process)
-  - [Learn More](#learn-more)
-  - [Contact](#contact)
+  - [`npm start`](#npm-start)
+  - [`npm test`](#npm-test)
+  - [`npm run build`](#npm-run-build)
+  - [`npm run eject`](#npm-run-eject)
+- [Features](#features)
+- [Build Process](#build-process)
+- [Learn More](#learn-more)
+- [Contact](#contact)
 
 ## Introduction
 ### This is a project built **React.js** and got data from API Covid PostMan which trades covid data
@@ -30,11 +36,11 @@
 - Material UI
 
 ## Setup
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -74,9 +80,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - Show covid information of  World
 - Covid data statistics.
 **Review Feature**
-
+[Covid Stat Website](https://qqlm-covid19-stats.herokuapp.com/)
+- Highlight and chart
+![HighLight and Chart](./public/ReviewPage1.png)
+- Comment Component
+![Comment](./public/ReviewPage2.png)
+- Contact Page
+![Contact](./public/ReviewPage3.png)
 ## Build Process
-My team chose react to build trading covid website. it's base on vnexpress.net and get data from PostMan API.
+My team choose react to build trading covid website. it's base on vnexpress website and get data from POSTMAN API.
 I made the functions such highlight data, covid chart, comment component, about page, contact page, header, footer
 ## Learn More
 
