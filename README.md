@@ -1,3 +1,35 @@
+
+<h1 align="center">React Website: Covid Stat</h1> <br>
+<p align="center">
+  <a href="https://github.com/NPMinhQuan1506/covid19-stats">
+    <img alt="Covid-Stat" title="Covid-Stat" src="./public/logo-covid.png" width="450">
+  </a>
+</p>
+<p align="center">
+  Trading covid API with Covid Stat.
+</p>
+
+## Table of Contents
+
+- [Getting Started with Create React App](#getting-started-with-create-react-app)
+  - [Available Scripts](#available-scripts)
+    - [`npm start`](#npm-start)
+    - [`npm test`](#npm-test)
+    - [`npm run build`](#npm-run-build)
+    - [`npm run eject`](#npm-run-eject)
+  - [Features](#features)
+  - [Build Process](#build-process)
+  - [Learn More](#learn-more)
+  - [Contact](#contact)
+
+## Introduction
+### This is a project built **React.js** and got data from API Covid PostMan which trades covid data
+## Technologies
+### Project create with:
+- React 
+- Material UI
+
+## Setup
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -38,9 +70,20 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Features
+- Show covid information of  World
+- Covid data statistics.
+**Review Feature**
 
+## Build Process
+My team chose react to build trading covid website. it's base on vnexpress.net and get data from PostMan API.
+I made the functions such highlight data, covid chart, comment component, about page, contact page, header, footer
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
+
+- ***Phone***: 0909300146
+- ***Mail***: npminhquan1506@gmail.com
